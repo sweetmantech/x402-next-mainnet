@@ -48,18 +48,6 @@ const imageGenerateOutputSchema = {
 export const middleware = paymentMiddleware(
   payTo,
   {
-    "/protected": {
-      price: "$0.001",
-      network: "base",
-      config: {
-        discoverable: true, // make endpoint discoverable
-        description: "Access to protected content",
-        outputSchema: {
-          type: "text/html",
-          description: "Exclusive music content",
-        },
-      },
-    },
     "GET /api/image/generate": {
       price: "$0.01111",
       network: "base",
