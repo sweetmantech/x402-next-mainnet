@@ -2,6 +2,12 @@ import { NextRequest } from "next/server";
 import refreshConnectedAccount from "@/lib/composio/googleSheets/refreshConnectedAccount";
 import { createApiResponse } from "@/lib/networking/createApiResponse";
 
+/**
+ * POST handler for refreshing a connected account.
+ *
+ * @param request - The request object.
+ * @returns A NextResponse with the refreshed connected account.
+ */
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
@@ -15,13 +21,12 @@ export async function POST(request: NextRequest) {
 
     return createApiResponse(
       { message: "Connected account refreshed successfully", ...response },
-      200
+      200,
     );
   } catch (error) {
     console.error("Error refreshing connected account:", error);
 
-    const errorMessage =
-      error instanceof Error ? error.message : "Internal server error";
+    const errorMessage = error instanceof Error ? error.message : "Internal server error";
     const statusCode = errorMessage.includes("not found") ? 404 : 500;
 
     return createApiResponse({ error: errorMessage }, statusCode);
