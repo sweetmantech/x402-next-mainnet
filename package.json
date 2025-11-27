@@ -16,7 +16,6 @@
     "@coinbase/x402": "^0.7.3",
     "@composio/core": "^0.2.6",
     "@composio/vercel": "^0.2.18",
-    "@heroicons/react": "^2.2.0",
     "next": "^16.0.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
